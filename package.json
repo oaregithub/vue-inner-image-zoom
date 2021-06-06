@@ -18,28 +18,24 @@
     "lint": "vue-cli-service lint",
     "semantic-release": "semantic-release"
   },
-  "dependencies": {
-    "portal-vue": "^2.1.7"
-  },
   "peerDependencies": {
     "core-js": "^3.6.5",
-    "vue": "^2.6.11"
+    "vue": "^3.0.0"
   },
   "devDependencies": {
-    "@vue/cli-plugin-babel": "~4.4.0",
-    "@vue/cli-plugin-eslint": "~4.4.0",
-    "@vue/cli-plugin-unit-jest": "~4.4.0",
-    "@vue/cli-service": "~4.4.0",
+    "@vue/cli-plugin-babel": "~4.5.0",
+    "@vue/cli-plugin-eslint": "~4.5.0",
+    "@vue/cli-service": "~4.5.0",
+    "@vue/compiler-sfc": "^3.0.11",
     "@vue/eslint-config-prettier": "^6.0.0",
-    "@vue/test-utils": "^1.0.3",
+    "@vue/test-utils": "^2.0.0-rc.6",
     "babel-eslint": "^10.1.0",
     "eslint": "^6.7.2",
-    "eslint-plugin-prettier": "^3.1.4",
-    "eslint-plugin-vue": "^6.2.2",
+    "eslint-plugin-prettier": "^3.4.0",
+    "eslint-plugin-vue": "^7.0.0",
     "prettier": "^2.0.5",
-    "vue": "^2.6.11",
-    "vue-template-compiler": "^2.6.11",
-    "semantic-release": "^17.1.1"
+    "semantic-release": "^17.1.1",
+    "vue": "^3.0.0"
   },
   "author": "Lauren Ashpole",
   "homepage": "https://github.com/laurenashpole/vue-inner-image-zoom#readme",
