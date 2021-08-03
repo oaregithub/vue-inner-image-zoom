@@ -4,8 +4,8 @@
     <div style="margin-bottom: 30px;">
       <h2>Pan Example</h2>
       <inner-image-zoom
-        zoomSrc="/assets/unsplash-large.jpg"
         :src="srcs[0]"
+        :zoomSrc="srcs[1]"
         :fullscreenOnMobile="true"
         :hideCloseButton="true"
         :hideHint="true"
@@ -39,11 +39,12 @@
 <script>
 import InnerImageZoom from '../../src/InnerImageZoom';
 
-export default {
-  name: 'App',
+const App = {
   components: {
     InnerImageZoom
   },
   props: ['srcs']
 };
+
+export default App;
 </script>

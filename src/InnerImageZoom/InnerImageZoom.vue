@@ -67,7 +67,7 @@
 
     <template v-if="isActive">
       <template v-if="isFullscreen">
-{/*        <MountingPortal mount-to="body" name="iizPortal" append>
+        <teleport to="body">
           <div class="iiz__zoom-portal">
             <img
               class="iiz__zoom-img"
@@ -106,7 +106,7 @@
               v-on:click.stop="handleClose"
             />
           </div>
-        </MountingPortal>*/}
+        </teleport>
       </template>
 
       <template v-else>
@@ -153,13 +153,7 @@
 </template>
 
 <script>
-{/*import { MountingPortal } from 'portal-vue';*/}
-
-export default {
-  name: 'InnerImageZoom',
-  // components: {
-  //   MountingPortal
-  // },
+const InnerImageZoom = {
   props: {
     moveType: {
       type: String,
@@ -443,6 +437,8 @@ function getRatios(bounds, zoomImg) {
     y: (zoomImg.offsetHeight - bounds.height) / bounds.height
   };
 }
+
+export default InnerImageZoom;
 </script>
 
 <style scoped>
