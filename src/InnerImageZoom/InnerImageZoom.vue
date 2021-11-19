@@ -67,44 +67,44 @@
 
     <template v-if="isActive">
       <template v-if="isFullscreen">
-          <div class="iiz__zoom-portal">
-            <img
-              class="iiz__zoom-img"
-              alt=""
-              draggable="false"
-              v-bind:class="{ 'iiz__zoom-img--visible': isZoomed }"
-              v-bind:style="{
-                top: `${top}px`,
-                left: `${left}px`,
-                transition: `linear ${isFullscreen ? 0 : fadeDuration}ms opacity, linear ${
-                  isFullscreen ? 0 : fadeDuration
-                }ms visibility`
-              }"
-              v-bind:src="zoomSrc || src"
-              v-on="{
-                load: handleLoad,
-                touchstart: handleDragStart,
-                touchend: handleDragEnd,
-                mousedown: handleDragStart,
-                mouseup: handleDragEnd,
-                click: handleClick
-              }"
-            />
+        <div class="iiz__zoom-portal">
+          <img
+            class="iiz__zoom-img"
+            alt=""
+            draggable="false"
+            v-bind:class="{ 'iiz__zoom-img--visible': isZoomed }"
+            v-bind:style="{
+              top: `${top}px`,
+              left: `${left}px`,
+              transition: `linear ${isFullscreen ? 0 : fadeDuration}ms opacity, linear ${
+                isFullscreen ? 0 : fadeDuration
+              }ms visibility`
+            }"
+            v-bind:src="zoomSrc || src"
+            v-on="{
+              load: handleLoad,
+              touchstart: handleDragStart,
+              touchend: handleDragEnd,
+              mousedown: handleDragStart,
+              mouseup: handleDragEnd,
+              click: handleClick
+            }"
+          />
 
-            <button
-              v-if="isTouch && !hideCloseButton"
-              type="button"
-              class="iiz__btn iiz__close"
-              aria-label="Zoom Out"
-              v-bind:class="{ 'iiz__close--visible': isZoomed }"
-              v-bind:style="{
-                transition: `linear ${isFullscreen ? 0 : fadeDuration}ms opacity, linear ${
-                  isFullscreen ? 0 : fadeDuration
-                }ms visibility`
-              }"
-              v-on:click.stop="handleClose"
-            />
-          </div>
+          <button
+            v-if="isTouch && !hideCloseButton"
+            type="button"
+            class="iiz__btn iiz__close"
+            aria-label="Zoom Out"
+            v-bind:class="{ 'iiz__close--visible': isZoomed }"
+            v-bind:style="{
+              transition: `linear ${isFullscreen ? 0 : fadeDuration}ms opacity, linear ${
+                isFullscreen ? 0 : fadeDuration
+              }ms visibility`
+            }"
+            v-on:click.stop="handleClose"
+          />
+        </div>
       </template>
 
       <template v-else>
@@ -151,7 +151,6 @@
 </template>
 
 <script>
-
 export default {
   name: 'InnerImageZoom',
   props: {
