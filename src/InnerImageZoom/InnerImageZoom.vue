@@ -1,10 +1,11 @@
 <template>
   <figure
-    class="iiz"
     ref="img"
     v-bind:class="{
       [className]: className,
-      'iiz--drag': currentMoveType === 'drag'
+      'iiz--drag': currentMoveType === 'drag',
+      iiz: !isZoomed,
+      'iiz--zoom': isZoomed
     }"
     v-bind:style="{
       width: `${width}px`
@@ -34,7 +35,10 @@
           />
           <img
             class="iiz__img"
-            v-bind:class="{ 'iiz__img--hidden': isZoomed, 'iiz__img--abs': createSpacer }"
+            v-bind:class="{
+              'iiz__img--hidden': isZoomed,
+              'iiz__img--abs': createSpacer
+            }"
             v-bind:style="{
               transition: `linear 0ms opacity ${isZoomed ? fadeDuration : 0}ms, linear 0ms visibility ${
                 isZoomed ? fadeDuration : 0
@@ -50,8 +54,12 @@
 
       <template v-else>
         <img
-          class="iiz__img"
-          v-bind:class="{ 'iiz__img--hidden': isZoomed, 'iiz__img--abs': createSpacer }"
+          v-bind:class="{
+            'iiz__img--hidden': isZoomed,
+            'iiz__img--abs': createSpacer,
+            iiz__img: !isZoomed,
+            'iiz_img--zoom': isZoomed
+          }"
           v-bind:style="{
             transition: `linear 0ms opacity ${isZoomed ? fadeDuration : 0}ms, linear 0ms visibility ${
               isZoomed ? fadeDuration : 0
@@ -118,7 +126,8 @@
             left: `${left}px`,
             transition: `linear ${isFullscreen ? 0 : fadeDuration}ms opacity, linear ${
               isFullscreen ? 0 : fadeDuration
-            }ms visibility`
+            }ms visibility`,
+            'object-fit': 'contain'
           }"
           v-bind:src="zoomSrc || src"
           v-on="{
@@ -422,6 +431,14 @@ function getScaledDimensions(zoomImg, zoomScale) {
   cursor: zoom-in;
   object-fit: contain;
 }
+.iiz--zoom {
+  max-width: 100%;
+  margin: 0;
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+  cursor: zoom-in;
+}
 .iiz--drag .iiz__zoom-img--visible {
   cursor: grab;
 }
@@ -429,6 +446,15 @@ function getScaledDimensions(zoomImg, zoomScale) {
   max-width: 36vw;
   max-height: 70vh;
   height: auto;
+  pointer-events: none;
+  visibility: visible;
+  opacity: 1;
+  object-fit: contain;
+}
+.iiz__img--zoom {
+  max-width: 100%;
+  height: auto;
+  display: block;
   pointer-events: none;
   visibility: visible;
   opacity: 1;
